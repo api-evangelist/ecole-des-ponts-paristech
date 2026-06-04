@@ -1,0 +1,68 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "enpc": "https://ecoledesponts.fr/ns#",
+    "schema": "https://schema.org/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+
+    "institution": {
+      "@id": "schema:CollegeOrUniversity",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "alternateName": "schema:alternateName",
+    "url": "schema:url",
+    "description": "schema:description",
+    "logo": "schema:logo",
+    "sameAs": "schema:sameAs",
+    "address": "schema:address",
+    "foundingDate": "schema:foundingDate",
+
+    "repository": {
+      "@id": "enpc:repository",
+      "@type": "@id"
+    },
+    "collection": "enpc:collection",
+    "publication": {
+      "@id": "schema:ScholarlyArticle",
+      "@type": "@id"
+    },
+    "publications": "enpc:publications",
+    "metadataFormat": "enpc:metadataFormat",
+    "oaiSet": "oai:setSpec",
+    "oaiEndpoint": "enpc:oaiEndpoint",
+    "searchEndpoint": "enpc:searchEndpoint",
+
+    "title": "dc:title",
+    "creator": "dc:creator",
+    "subject": "dc:subject",
+    "publisher": "dc:publisher",
+    "date": "dc:date",
+    "identifier": "dc:identifier",
+    "language": "dc:language",
+    "type": "dc:type"
+  },
+  "@type": "CollegeOrUniversity",
+  "@id": "https://ecoledesponts.fr/",
+  "name": "École des Ponts ParisTech",
+  "alternateName": "École nationale des ponts et chaussées (ENPC)",
+  "url": "https://ecoledesponts.fr/",
+  "description": "Leading French public engineering grande école based in Champs-sur-Marne, operating an institutional open-access repository (ENPC collection) within the national HAL platform and a digital heritage library exposed via OAI-PMH.",
+  "sameAs": [
+    "https://github.com/EcoleDesPontsParisTech",
+    "https://www.linkedin.com/school/ecole-des-ponts-paristech/",
+    "https://twitter.com/EcoledesPonts",
+    "https://enpc.hal.science/",
+    "https://lib.enpc.fr/"
+  ],
+  "repository": {
+    "@type": "CollegeOrUniversity",
+    "name": "ENPC HAL Collection",
+    "url": "https://enpc.hal.science/",
+    "searchEndpoint": "https://api.archives-ouvertes.fr/search/ENPC/",
+    "oaiEndpoint": "https://api.archives-ouvertes.fr/oai/hal/",
+    "oaiSet": "collection:ENPC",
+    "metadataFormat": "oai_dc"
+  }
+}

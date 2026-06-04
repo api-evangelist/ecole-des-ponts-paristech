@@ -1,0 +1,14 @@
+{
+  "repo": "ecole-des-ponts-paristech",
+  "feeds": [
+    {
+      "source": "https://ecoledesponts.fr/actualites-evenements",
+      "feed_url": "https://ecoledesponts.fr/actualites-evenements?type=news",
+      "title": "Actualités et évènements - École des Ponts ParisTech",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-03T00:00:00Z"
+}
