@@ -1,0 +1,102 @@
+---
+aid: ecole-des-ponts-paristech
+name: École des Ponts ParisTech
+description: >-
+  École des Ponts ParisTech (École nationale des ponts et chaussées, ENPC) is a
+  leading French public engineering grande école based in Champs-sur-Marne, ranked
+  #205 in the QS World University Rankings 2025. Its public developer/API footprint
+  is research- and library-oriented rather than a commercial developer program: the
+  institution operates an institutional open-access repository as the ENPC collection
+  within the national HAL platform, which is harvestable through the HAL Search API
+  and an OAI-PMH endpoint. The school maintains a small public GitHub organization
+  (EcoleDesPontsParisTech) hosting an OAI-PMH repository plugin used for exposing its
+  digital heritage library metadata to Gallica and Europeana. No general-purpose,
+  self-service developer portal with course, timetable, or identity APIs was found
+  publicly documented.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/ecole-des-ponts-paristech/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Engineering
+  - Research
+  - Open Access
+  - Open Data
+  - Library
+  - OAI-PMH
+  - France
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: ecole-des-ponts-paristech:hal-search
+    name: HAL Search API (ENPC collection)
+    description: >-
+      École des Ponts ParisTech's scientific output is deposited in its institutional
+      open-access repository, exposed as the ENPC collection on the national HAL
+      platform operated by CCSD. The HAL Search API (Solr-backed) returns publication
+      metadata in JSON/XML; the ENPC collection endpoint resolves and reports tens of
+      thousands of records. The API is national HAL infrastructure scoped to the
+      institution's collection, not an ENPC-hosted endpoint.
+    humanURL: https://enpc.hal.science/
+    baseURL: https://api.archives-ouvertes.fr/search/ENPC/
+    tags: [ Research, Open Access, Repository, Metadata, Publications ]
+    properties:
+      - type: Documentation
+        url: https://api.archives-ouvertes.fr/docs/search
+  - aid: ecole-des-ponts-paristech:hal-oai-pmh
+    name: HAL OAI-PMH Endpoint
+    description: >-
+      The HAL platform hosting the ENPC institutional repository collection exposes an
+      OAI-PMH 2.0 endpoint for metadata harvesting. The Identify verb resolves live and
+      the ENPC set can be harvested for the institution's open-access records. This is
+      shared national HAL infrastructure scoped via set selectors.
+    humanURL: https://enpc.hal.science/
+    baseURL: https://api.archives-ouvertes.fr/oai/hal/
+    tags: [ Research, OAI-PMH, Repository, Metadata, Harvesting ]
+    properties:
+      - type: Documentation
+        url: https://api.archives-ouvertes.fr/docs/oai
+  - aid: ecole-des-ponts-paristech:oai-pmh-omeka
+    name: OAI-PMH Repository Plugin (Omeka)
+    description: >-
+      Public PHP source hosted on the official EcoleDesPontsParisTech GitHub
+      organization. A forked OAI-PMH repository plugin for Omeka, modified for the
+      project exposing the school's digital heritage library metadata (in Dublin Core)
+      for harvesting by Gallica and Europeana. This is open-source software rather than
+      a hosted API service.
+    humanURL: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
+    tags: [ Library, OAI-PMH, Open Source, Heritage, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
+      - type: GitHub
+        url: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
+common:
+  - type: Website
+    url: https://ecoledesponts.fr/
+  - type: GitHub
+    url: https://github.com/EcoleDesPontsParisTech
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/ecole-des-ponts-paristech/
+  - type: Twitter
+    url: https://twitter.com/EcoledesPonts
+  - type: Library
+    url: https://lib.enpc.fr/
+  - type: Repository
+    url: https://enpc.hal.science/
+  - type: Plans
+    url: plans/ecole-des-ponts-paristech-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ecole-des-ponts-paristech-rate-limits.yml
+  - type: FinOps
+    url: finops/ecole-des-ponts-paristech-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

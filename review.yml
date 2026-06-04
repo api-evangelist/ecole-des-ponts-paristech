@@ -1,0 +1,56 @@
+---
+name: École des Ponts ParisTech
+description: École des Ponts ParisTech public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/ecole-des-ponts-paristech/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      No general-purpose, self-service developer portal was found for École des Ponts
+      ParisTech (ENPC). The verifiable public API footprint is research- and
+      library-oriented. The institution's open-access output is exposed as the ENPC
+      collection on the national HAL platform: the HAL Search API returned 43,726
+      records for the ENPC collection (HTTP 200, real JSON), and the HAL OAI-PMH
+      Identify verb resolved live (HTTP 200, valid OAI-PMH XML). These are shared
+      national CCSD/HAL endpoints scoped to the institution rather than ENPC-hosted
+      services. The official EcoleDesPontsParisTech GitHub org exists with one public
+      repo (an Omeka OAI-PMH plugin). The institution website, library portal, and
+      X/Twitter resolved. No course/timetable/SIS, identity/SSO, or mobile-backend
+      APIs were publicly documented; none were fabricated. The espacechercheurs.enpc.fr
+      open-science host did not resolve from this environment.
+    endpoints:
+      - url: https://ecoledesponts.fr/
+        status: 200
+        note: Official institution website resolves.
+      - url: https://www.ecoledesponts.fr/en
+        status: 200
+        note: English-language institutional site resolves.
+      - url: https://github.com/EcoleDesPontsParisTech
+        status: 200
+        note: Official GitHub org, 1 public repo (OaiPmhRepository).
+      - url: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
+        status: 200
+        note: Public PHP fork, OAI-PMH plugin for Omeka.
+      - url: https://api.archives-ouvertes.fr/search/ENPC/?q=*:*&rows=1&wt=json
+        status: 200
+        note: HAL Search API, ENPC collection, returned numFound 43726 real records.
+      - url: https://api.archives-ouvertes.fr/oai/hal/?verb=Identify
+        status: 200
+        note: HAL OAI-PMH Identify resolved with valid OAI-PMH 2.0 XML.
+      - url: https://enpc.hal.science/
+        status: 200
+        note: ENPC HAL portal (institutional repository collection) resolves; bot-protected.
+      - url: https://lib.enpc.fr/
+        status: 200
+        note: ENPC library portal resolves.
+      - url: https://twitter.com/EcoledesPonts
+        status: 200
+        note: Official X/Twitter account resolves.
+      - url: https://espacechercheurs.enpc.fr/en/open-science-plan
+        status: 0
+        note: Open-science researcher portal did not resolve from this environment.
+      - url: https://www.linkedin.com/school/ecole-des-ponts-paristech/
+        status: 999
+        note: LinkedIn school page (999 = LinkedIn anti-bot, not a confirmed 404).
