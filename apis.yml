@@ -77,6 +77,8 @@ apis:
       - type: GitHub
         url: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
 common:
+  - type: DomainSecurity
+    url: security/ecole-des-ponts-paristech-domain-security.yml
   - type: Website
     url: https://ecoledesponts.fr/
   - type: GitHub
