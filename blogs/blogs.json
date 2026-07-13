@@ -4,11 +4,12 @@
     {
       "source": "https://ecoledesponts.fr/actualites-evenements",
       "feed_url": "https://ecoledesponts.fr/actualites-evenements?type=news",
-      "title": "Actualités et évènements - École des Ponts ParisTech",
+      "title": "Actualit\u00e9s et \u00e9v\u00e8nements - \u00c9cole des Ponts ParisTech",
       "saved": 0,
-      "method": "none"
+      "method": "none",
+      "error": "parse_failed"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-03T00:00:00Z"
+  "fetched": "2026-07-11T11:43:46Z"
 }
