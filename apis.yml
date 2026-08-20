@@ -82,7 +82,18 @@ apis:
       for harvesting by Gallica and Europeana. This is open-source software rather than
       a hosted API service.
     humanURL: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
-    tags: [ Library, OAI-PMH, Open Source, Heritage, Metadata ]
+    tags:
+    - Library
+    - OAI-PMH
+    - Open-Source
+    - Heritage
+    - Metadata
+    tags_raw:
+    - Library
+    - OAI-PMH
+    - Open Source
+    - Heritage
+    - Metadata
     properties:
       - type: Documentation
         url: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
