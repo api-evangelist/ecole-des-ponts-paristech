@@ -2,14 +2,20 @@
   "repo": "ecole-des-ponts-paristech",
   "feeds": [
     {
-      "source": "https://ecoledesponts.fr/actualites-evenements",
+      "source": "https://ecoledesponts.fr/actualites-evenements?type=news",
       "feed_url": "https://ecoledesponts.fr/actualites-evenements?type=news",
-      "title": "Actualit\u00e9s et \u00e9v\u00e8nements - \u00c9cole des Ponts ParisTech",
+      "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
+    },
+    {
+      "source": "https://ecoledesponts.fr/declaration-accessibilite",
+      "feed_url": "https://ecoledesponts.fr/declaration-accessibilite",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-22T20:08:02Z"
+  "fetched": "2026-08-30T22:33:40Z"
 }
