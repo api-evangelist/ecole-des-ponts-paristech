@@ -216,7 +216,20 @@ apis:
       returned the HTML search page.
     humanURL: https://heritage.ecoledesponts.fr/enpc/
     baseURL: https://heritage.ecoledesponts.fr/iiif/
-    tags: [ Digital Library, Heritage, IIIF, Gallica, Metadata, Images ]
+    tags:
+    - Digital Library
+    - Heritage
+    - IIIF
+    - Gallica
+    - Metadata
+    - Image
+    tags_raw:
+    - Digital Library
+    - Heritage
+    - IIIF
+    - Gallica
+    - Metadata
+    - Images
     properties:
       - type: Documentation
         url: https://heritage.ecoledesponts.fr/enpc/fr/content/reutiliser-nos-collections
