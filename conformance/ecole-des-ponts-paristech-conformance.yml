@@ -1,0 +1,152 @@
+---
+aid: ecole-des-ponts-paristech
+name: École des Ponts ParisTech — Domain Standard Conformance
+description: >-
+  Education-regime domain standards observed for École des Ponts ParisTech (ENPC).
+  Every entry carries an x-operator, because for a university the standard is
+  frequently implemented by a national or vendor platform running the institution's
+  data rather than by the institution's own engineering. Only entries marked
+  x-operator: institution are ENPC's own implementation. Reward-only: standards not
+  observed are recorded as not_observed, never inferred from a prose claim.
+generated: '2026-08-30'
+method: probed
+source: live HTTP probes against ENPC and platform hosts, 2026-08-30
+regime: education
+standards:
+  - standard: saml
+    status: conformant
+    x-operator: institution
+    detail: >-
+      ENPC operates its own SAML 2.0 Identity Provider and publishes a live
+      EntityDescriptor. OrganizationName reads "École des Ponts ParisTech",
+      OrganizationURL https://www.enpc.fr. The IdP declares SingleSignOnService over
+      HTTP-Redirect, HTTP-POST and HTTP-Artifact, SingleLogoutService over SOAP,
+      HTTP-Redirect and HTTP-POST, an ArtifactResolutionService and an
+      AttributeAuthorityDescriptor. Software is LemonLDAP::NG, not Shibboleth.
+    evidence:
+      - url: https://idp.enpc.fr/saml/metadata
+        status: 200
+        note: application/xml, 18751 bytes, entityID https://idp.enpc.fr/saml/metadata
+      - url: https://metadata.federation.renater.fr/renater/main/main-idps-renater-metadata.xml
+        status: 200
+        note: >-
+          RENATER Fédération Éducation-Recherche main IdP aggregate contains
+          entityID="https://idp.enpc.fr/saml/metadata" — federation membership confirmed
+          from the federation's own metadata, not from a claim on the ENPC site.
+  - standard: shibboleth
+    status: not_observed
+    x-operator: none
+    detail: >-
+      ENPC federates over SAML 2.0 but the IdP is LemonLDAP::NG. No Shibboleth IdP,
+      no shibmd:Scope element and no Shibboleth-specific metadata extension was
+      present in the EntityDescriptor. Recorded as not observed rather than folded
+      into the SAML hit.
+    evidence:
+      - url: https://idp.enpc.fr/saml/metadata
+        status: 200
+        note: no shibmd:Scope, no mdui:UIInfo, no ContactPerson elements present
+  - standard: oai-pmh
+    status: conformant
+    x-operator: tenant
+    detail: >-
+      ENPC's open-access record set is harvestable over OAI-PMH 2.0, but through the
+      national HAL platform operated by CCSD, not from an ENPC host. The ENPC scope is
+      the set selector collection:ENPC. A second OAI-PMH surface carries the ENPC
+      research-data collection on Recherche Data Gouv. Both are national infrastructure;
+      the records are ENPC's, the endpoint is not.
+    evidence:
+      - url: https://api.archives-ouvertes.fr/oai/hal/?verb=Identify
+        status: 200
+        note: text/xml OAI-PMH 2.0 Identify response
+      - url: https://api.archives-ouvertes.fr/oai/hal/?verb=ListRecords&metadataPrefix=oai_dc&set=collection:ENPC
+        status: 200
+        note: 505383 bytes of oai_dc records for the ENPC collection
+      - url: https://entrepot.recherche.data.gouv.fr/oai?verb=Identify
+        status: 200
+        note: text/xml, national Dataverse OAI-PMH provider
+  - standard: datacite
+    status: conformant
+    x-operator: tenant
+    detail: >-
+      Datasets deposited in ENPC's Recherche Data Gouv collection are assigned
+      DataCite DOIs under the 10.57745 prefix registered by the national repository,
+      not by ENPC. ENPC curates the collection; DOI registration is the platform's.
+    evidence:
+      - url: https://entrepot.recherche.data.gouv.fr/api/search?q=*&type=dataset&subtree=ecoledesponts
+        status: 200
+        note: 25 datasets, global_id values doi:10.57745/RKIQN9, doi:10.57745/FJFLYB, doi:10.57745/QRTYI6
+  - standard: orcid
+    status: conformant
+    x-operator: tenant
+    detail: >-
+      31437 of the 43955 records in the ENPC HAL collection carry an author ORCID iD
+      in authORCIDIdExt_id. ORCID resolution is a HAL platform capability applied to
+      ENPC-affiliated records; ENPC operates no ORCID integration of its own.
+    evidence:
+      - url: https://api.archives-ouvertes.fr/search/ENPC/?q=authORCIDIdExt_id:*&rows=0&wt=json
+        status: 200
+        note: numFound 31437
+      - url: https://api.archives-ouvertes.fr/search/ENPC/?q=*:*&rows=0&wt=json
+        status: 200
+        note: numFound 43955 total records in the ENPC collection
+  - standard: crossref
+    status: not_observed
+    x-operator: none
+    detail: No ENPC-operated Crossref deposit or member prefix was found.
+  - standard: lti
+    status: not_observed
+    x-operator: none
+    detail: No public LTI tool or platform registration surface was found on any ENPC host.
+  - standard: scim
+    status: not_observed
+    x-operator: none
+    detail: >-
+      Provisioning is not publicly exposed. idp.enpc.fr answers every unknown path with
+      the LemonLDAP::NG authentication portal HTML, including
+      /.well-known/openid-configuration — a soft-200, not an OIDC discovery document.
+    evidence:
+      - url: https://idp.enpc.fr/.well-known/openid-configuration
+        status: 200
+        note: returns text/html authentication-portal shell, NOT an OIDC discovery document
+  - standard: oneroster
+    status: not_observed
+    x-operator: none
+  - standard: ed-fi
+    status: not_observed
+    x-operator: none
+  - standard: caliper
+    status: not_observed
+    x-operator: none
+  - standard: qti
+    status: not_observed
+    x-operator: none
+non_regime_standards:
+  - standard: iiif
+    status: conformant
+    x-operator: tenant
+    detail: >-
+      The ENPC heritage digital library serves IIIF Presentation API 2.0 manifests from
+      an ENPC-registrable host, but the deployment is BnF's Gallica Marque Blanche:
+      heritage.ecoledesponts.fr resolves to 194.199.8.58 (whois netname FR-BNF,
+      Bibliotheque Nationale de France), manifests carry attribution "Bibliothèque
+      nationale de France" and BnF ARKs under naming authority 12148. Institution
+      domain, institution collections, BnF contract and BnF infrastructure.
+    evidence:
+      - url: https://heritage.ecoledesponts.fr/iiif/ark:/12148/btv1b104842475/manifest.json
+        status: 200
+        note: '@context http://iiif.io/api/presentation/2/context.json, @type sc:Manifest'
+      - url: https://heritage.ecoledesponts.fr/ark:/12148/btv1b104842475/f1.thumbnail
+        status: 200
+        note: image/jpeg, Gallica image delivery under the ENPC hostname
+  - standard: sru
+    status: not_observed
+    x-operator: none
+    detail: >-
+      The heritage site links /services/engine/search/sru URLs, but every SRU request
+      probed returned the 45KB HTML search page rather than an SRU response, including
+      operation=explain. A soft-200 search UI route, not a machine surface. Recorded as
+      not observed on purpose — link presence is not an API.
+    evidence:
+      - url: https://heritage.ecoledesponts.fr/services/engine/search/sru?operation=explain&version=1.2
+        status: 200
+        note: text/html 45208 bytes, site shell — soft-200

@@ -1,0 +1,78 @@
+---
+aid: ecole-des-ponts-paristech
+name: École des Ponts ParisTech — Authentication
+description: >-
+  How authentication works across the surfaces attributed to École des Ponts
+  ParisTech. There is no API key programme, no developer registration and no OAuth
+  client provisioning anywhere on an ENPC host. What ENPC does operate is campus
+  identity: a SAML 2.0 Identity Provider registered in the French national research
+  and education federation, and a CAS server. Both authenticate people into
+  institutional applications; neither issues credentials to third-party developers.
+generated: '2026-08-30'
+method: probed
+source: live HTTP probes against idp.enpc.fr, cas.enpc.fr and the RENATER federation metadata, 2026-08-30
+mechanisms:
+  - type: saml2
+    name: ENPC SAML 2.0 Identity Provider
+    x-operator: institution
+    entity_id: https://idp.enpc.fr/saml/metadata
+    metadata_url: https://idp.enpc.fr/saml/metadata
+    software: LemonLDAP::NG
+    federation: RENATER Fédération Éducation-Recherche (member of eduGAIN)
+    endpoints:
+      - binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+        purpose: SingleSignOn
+        location: https://idp.enpc.fr/saml/singleSignOn
+      - binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+        purpose: SingleSignOn
+        location: https://idp.enpc.fr/saml/singleSignOn
+      - binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact
+        purpose: SingleSignOn
+        location: https://idp.enpc.fr/saml/singleSignOnArtifact
+      - binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+        purpose: SingleLogout
+        location: https://idp.enpc.fr/saml/singleLogout
+      - binding: urn:oasis:names:tc:SAML:2.0:bindings:SOAP
+        purpose: ArtifactResolution
+        location: https://idp.enpc.fr/saml/artifact
+    audience: staff, students and federated service providers — not third-party developers
+    evidence:
+      - url: https://idp.enpc.fr/saml/metadata
+        status: 200
+      - url: https://metadata.federation.renater.fr/renater/main/main-idps-renater-metadata.xml
+        status: 200
+        note: contains entityID="https://idp.enpc.fr/saml/metadata"
+  - type: cas
+    name: ENPC CAS server
+    x-operator: institution
+    login_url: https://cas.enpc.fr/cas/login
+    detail: >-
+      A CAS login server branded "École des ponts et chaussées" fronts internal
+      applications. CAS ticket validation is machine-readable by protocol, but no
+      public service registration exists, so it is not a developer-accessible surface.
+    evidence:
+      - url: https://cas.enpc.fr/cas/login
+        status: 200
+  - type: microsoft-entra
+    name: Microsoft 365 / SharePoint intranet sign-in
+    x-operator: vendor
+    detail: >-
+      intranet.enpc.fr redirects to login.microsoftonline.com for tenant
+      cbc292d3-d274-4204-9169-16847b678004 and resolves to enpcfr.sharepoint.com.
+      Vendor-operated staff intranet, recorded for completeness only. Not a surface.
+    evidence:
+      - url: https://intranet.enpc.fr/
+        status: 200
+        note: redirects to login.microsoftonline.com, SharePoint Online tenant enpcfr
+not_present:
+  - api_keys: no API key issuance, developer account, or self-service credential flow on any ENPC host
+  - oauth2: >-
+      No OAuth 2.0 authorization server. /.well-known/openid-configuration and
+      /oauth2/.well-known/openid-configuration on idp.enpc.fr both return the
+      LemonLDAP::NG portal HTML — soft-200s, not discovery documents.
+  - developer_portal: no api.enpc.fr, api.ecoledesponts.fr or developer portal resolves
+public_surfaces_requiring_no_auth:
+  - https://idp.enpc.fr/saml/metadata
+  - https://heritage.ecoledesponts.fr/iiif/ark:/12148/btv1b104842475/manifest.json
+  - https://api.archives-ouvertes.fr/search/ENPC/
+  - https://entrepot.recherche.data.gouv.fr/api/dataverses/ecoledesponts
