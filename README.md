@@ -1,4 +1,4 @@
-# École des Ponts ParisTech (ecole-des-ponts-paristech)
+# École des Ponts ParisTech
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,52 +64,116 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-École des Ponts ParisTech (École nationale des ponts et chaussées, ENPC) is a leading French public engineering grande école based in Champs-sur-Marne, ranked #205 in the QS World University Rankings 2025. This repository catalogs the institution's public developer/API footprint as an APIs.json provider profile for the api-evangelist organization. ENPC's verifiable public API footprint is research- and library-oriented: an institutional open-access repository exposed as the ENPC collection on the national HAL platform (harvestable via the HAL Search API and OAI-PMH), plus a small public GitHub organization.
+École des Ponts ParisTech (École nationale des ponts et chaussées, ENPC) is a public French grande école of engineering founded in 1747, based in Champs-sur-Marne and a founding member of ParisTech. Its programmable footprint is small and must be read honestly: ENPC operates no public API programme, no developer portal and no API key issuance — api.enpc.fr and api.ecoledesponts.fr do not resolve, and there is no developer section anywhere in the 1,910-URL sitemap of ecoledesponts.fr. The single machine-readable contract ENPC genuinely operates itself is its SAML 2.0 Identity Provider metadata at idp.enpc.fr, whose entityID is registered in the RENATER Fédération Éducation-Recherche and therefore reachable through eduGAIN. Everything else that looks like an ENPC API is a tenant relationship on someone else's platform: the open-access repository is the ENPC collection inside the national HAL platform operated by CCSD; the research-data repository is the ecoledesponts collection inside the national Recherche Data Gouv Dataverse; and the heritage digital library, though served under heritage.ecoledesponts.fr, is a Gallica Marque Blanche deployment hosted on BnF infrastructure with BnF ARKs and BnF attribution. Those are real institutional facts and are recorded as tenant surfaces — the data is ENPC's, the contract is not.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/ecole-des-ponts-paristech/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=ecole-des-ponts-paristech-api-evangelist&utm_content=repo
+**Areas:** University · Higher Education · Education · Technical University · Grande École · Engineering · France · Research · Open Access · Research Data · Identity Federation · Digital Library
 
-## Type
+## École des Ponts ParisTech on APIs.io
 
-- Index / Consumer / 3rd-Party
+Everything profiled for École des Ponts ParisTech is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ecole-des-ponts-paristech/](https://apis.io/providers/ecole-des-ponts-paristech/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-Education, Higher Education, University, Engineering, Research, Open Access, Open Data, Library, OAI-PMH, France
+- [ENPC SAML 2.0 Identity Provider Metadata](https://apis.io/apis/ecole-des-ponts-paristech/saml-idp/) — The one machine-readable contract École des Ponts ParisTech operates on its own infrastructure. A live SAML 2.0 EntityDescriptor served as application/xml…
+- [HAL — ENPC Open-Access Collection (tenant)](https://apis.io/apis/ecole-des-ponts-paristech/hal-enpc/) — ENPC's institutional open-access repository is the ENPC collection inside HAL, the French national open archive operated by CCSD/CNRS, with an ENPC-branded…
+- [Recherche Data Gouv — ENPC Dataverse Collection (tenant)](https://apis.io/apis/ecole-des-ponts-paristech/recherche-data-gouv/) — ENPC's research-data repository is the collection with alias "ecoledesponts" (id 148870, dataverseType ORGANIZATIONS_INSTITUTIONS, created 2022-09-13)…
+- [L'Héritage des Ponts et Chaussées — IIIF Presentation API (tenant)](https://apis.io/apis/ecole-des-ponts-paristech/heritage-iiif/) — ENPC's heritage digital library, holding more than 15,000 digitised documents from the school's collections, serves IIIF Presentation API 2.0 manifests and…
 
-## APIs
+### Published properties
 
-- **HAL Search API (ENPC collection)** — Solr-backed publication metadata for the ENPC institutional open-access collection on the national HAL platform. Docs: https://api.archives-ouvertes.fr/docs/search · Base: https://api.archives-ouvertes.fr/search/ENPC/
-- **HAL OAI-PMH Endpoint** — OAI-PMH 2.0 metadata harvesting for the ENPC collection on HAL. Docs: https://api.archives-ouvertes.fr/docs/oai · Base: https://api.archives-ouvertes.fr/oai/hal/
-- **OAI-PMH Repository Plugin (Omeka)** — Open-source PHP plugin on the official GitHub org for exposing the school's digital heritage library metadata to Gallica/Europeana. Repo: https://github.com/EcoleDesPontsParisTech/OaiPmhRepository
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans / Rate Limits / FinOps
+#### JSON-LD (1)
 
-- Plans & Pricing: [plans/ecole-des-ponts-paristech-plans-pricing.yml](plans/ecole-des-ponts-paristech-plans-pricing.yml)
-- Rate Limits: [rate-limits/ecole-des-ponts-paristech-rate-limits.yml](rate-limits/ecole-des-ponts-paristech-rate-limits.yml)
-- FinOps: [finops/ecole-des-ponts-paristech-finops.yml](finops/ecole-des-ponts-paristech-finops.yml)
+Linked-data contexts for the provider's vocabulary.
 
-## Timestamps
+- [Ecole Des Ponts Paristech Context](https://apis.io/jsonld/ecole-des-ponts-paristech/ecole-des-ponts-paristech-context/)
 
-- Created: 2026-06-03
-- Modified: 2026-06-03
+#### Security (2)
 
-## Common Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- Website: https://ecoledesponts.fr/
-- GitHub: https://github.com/EcoleDesPontsParisTech
-- LinkedIn: https://www.linkedin.com/school/ecole-des-ponts-paristech/
-- Twitter/X: https://twitter.com/EcoledesPonts
-- Library: https://lib.enpc.fr/
-- Repository (HAL ENPC): https://enpc.hal.science/
+- [Ecole Des Ponts Paristech Authentication](https://apis.io/security/ecole-des-ponts-paristech/ecole-des-ponts-paristech-authentication/)
+- [Ecole Des Ponts Paristech Domain Security](https://apis.io/security/ecole-des-ponts-paristech/ecole-des-ponts-paristech-domain-security/)
 
-## Notes
+#### Plans and pricing (1)
 
-- ENPC does not publish a general-purpose, self-service developer portal. The cataloged APIs are research/library interfaces, not a commercial developer program.
-- The HAL Search API and OAI-PMH endpoint are national CCSD/HAL infrastructure scoped to the institution's ENPC collection (verified live: 43,726 ENPC records; OAI-PMH Identify returned valid XML), not endpoints hosted on ENPC's own domains.
-- No course/timetable/SIS, identity/SSO, research-data, or mobile-backend APIs were found publicly documented; none were invented.
-- The espacechercheurs.enpc.fr open-science portal did not resolve from the review environment; LinkedIn returned an anti-bot 999 rather than a confirmed status.
+Published plans, tiers and prices.
 
-## Maintainers
+- [Ecole Des Ponts Paristech Plans Pricing](https://apis.io/plans/ecole-des-ponts-paristech/ecole-des-ponts-paristech-plans-pricing/)
 
-- Kin Lane — kin@apievangelist.com
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ecole Des Ponts Paristech Rate Limits](https://apis.io/rate-limits/ecole-des-ponts-paristech/ecole-des-ponts-paristech-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ecole Des Ponts Paristech Finops](https://apis.io/finops/ecole-des-ponts-paristech/ecole-des-ponts-paristech-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://ecoledesponts.fr/)
+- [Documentation](https://ecoledesponts.fr/en/documentation/open-science)
+- [Blog](https://ecoledesponts.fr/actualites-evenements)
+- [Terms of service](https://ecoledesponts.fr/mentions-legales)
+- [Privacy policy](https://ecoledesponts.fr/en/data-processing-and-privacy-policy)
+- [GitHub](https://github.com/EcoleDesPontsParisTech)
+
+## API Evangelist rating
+
+**Kin Score 24.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 20.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 26.3 |
+
+**Agent readiness 4.4** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ecole-des-ponts-paristech/](https://apis.io/providers/ecole-des-ponts-paristech/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for École des Ponts ParisTech: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ecole-des-ponts-paristech/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
